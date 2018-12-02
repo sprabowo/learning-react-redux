@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import ListBookmark from './containers/ListBookmark';
+import AddBookmark from './containers/AddBookmark'
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <Route path="/" exact component={AddBookmark} />
+          <Route path="/bookmark" component={ListBookmark} />
+        </div>
+      </Router>
     );
   }
 }
